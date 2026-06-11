@@ -1,15 +1,17 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom"
 import "./style.css";
-import LogReg from "./components/auth/LogReg.jsx";
-
+import Register from "./components/auth/Register.jsx";
+import Lander from "./components/pages/LandingPage.jsx"
 
 
 function App() {
   return (
     <>
-      <div className="app">
-        <LogReg/>
-      </div>
+      <Routes>
+        <Route path="/" element={<Lander/>}/>
+        <Route path="/register" element={<Register/>}/>
+      </Routes>
     </>
   );
 }
