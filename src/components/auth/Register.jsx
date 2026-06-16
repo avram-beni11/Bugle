@@ -2,23 +2,24 @@ import { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-//const navigate = useNavigate();
-
 export default function Register() {
+
+  const navigate = useNavigate();
+
   const [username, setUsername] = useState("");
 
   const { login } = useAuth();
 
   const handleSubmit = () => {
-  if (!username.trim()) return;
+    if (!username.trim()) return;
 
-  login(username);
+    login(username);
 
-  //navigate("/chat");
-};
+    navigate("/chat");
+  };
 
   return (
-    <div>
+    <div> {/* Basic registration */}
       <h1>Register</h1>
 
       <input
@@ -27,9 +28,9 @@ export default function Register() {
         placeholder="Username"
       />
 
-      <button className="outline" onClick={handleSubmit}>Registers</button>
+      <button className="outline" onClick={handleSubmit}>
+        Registers
+      </button>
     </div>
   );
-
-
 }
